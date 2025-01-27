@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages
+    {
+    stage ('git')
+    {
+        steps{
+           git branch: 'sfdc1234', credentialsId: '638812e8-befe-427f-bfb4-825193727fcb', url: 'https://github.com/divyadusa23/Devsalesforcecicd.git'
+
+   stage('Load Common-vars') {
+            steps {
+                script {
+                    def common-vars = load 'common-vars.sh'
+                    echo "username: ${common-vars.username}"
+                    echo "password: ${common-vars.password}"
+                }
+            }
+        }
+}
+}
+}
+}
+         
