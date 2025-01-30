@@ -1,23 +1,20 @@
 pipeline{
     agent any
-    stages
-    {
-    stage ('Stage: SCM')
-    {
-        steps{
+    stages{
+        stage ('Stage: SCM'){
+            steps{
            git branch: 'sfdc1234', credentialsId: '638812e8-befe-427f-bfb4-825193727fcb', url: 'https://github.com/divyadusa23/Devsalesforcecicd.git'
-
-   stage('Stage: Build') {
+           }
+      }
+        stage('Stage: upload') {
             steps {
                 script {
-                    sh common_vars = load 'common-vars.sh'
-                    echo "username: ${common_vars.username}"
-                    echo "password: ${common_vars.password}"
+    def common_vars = load 'common-vars.sh'
+    echo "username: ${common_vars.username}"
+    echo "password: ${common_vars.password}"
                 }
             }
         }
-}
-}
-}
+   }
 }
          
