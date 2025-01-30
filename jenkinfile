@@ -10,7 +10,7 @@ pipeline{
             steps {
                 script {
     #sh 'source ./common-vars.sh'
-    sh '. ./common-vars.sh'
+    sh './common-vars.sh'
     def content = readFile('common-vars.sh')
     echo "username: ${common_vars.username}"
     echo "password: ${common_vars.password}"
