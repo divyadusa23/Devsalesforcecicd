@@ -9,7 +9,7 @@ pipeline{
         stage('Stage: upload') {
             steps {
                 script {
-    sh 'source ./common-vars.sh'
+    sh 'bash -c "source ./common-vars.sh
     def content = readFile('common-vars.sh')
     echo "username: ${common_vars.username}"
     echo "password: ${common_vars.password}"
