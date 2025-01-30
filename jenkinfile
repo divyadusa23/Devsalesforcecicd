@@ -10,9 +10,9 @@ pipeline{
    stage('Load Common-vars') {
             steps {
                 script {
-                    def common-vars = load 'common-vars.sh'
-                    echo "username: ${common-vars.username}"
-                    echo "password: ${common-vars.password}"
+                    sh common_vars = load 'common-vars.sh'
+                    echo "username: ${common_vars.username}"
+                    echo "password: ${common_vars.password}"
                 }
             }
         }
