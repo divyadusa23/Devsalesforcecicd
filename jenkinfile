@@ -2,12 +2,12 @@ pipeline{
     agent any
     stages
     {
-    stage ('git')
+    stage ('Stage: SCM')
     {
         steps{
            git branch: 'sfdc1234', credentialsId: '638812e8-befe-427f-bfb4-825193727fcb', url: 'https://github.com/divyadusa23/Devsalesforcecicd.git'
 
-   stage('Load Common-vars') {
+   stage('Stage: Build') {
             steps {
                 script {
                     sh common_vars = load 'common-vars.sh'
